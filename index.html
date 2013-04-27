@@ -3,7 +3,7 @@
   <head>
     <title>{Title}</title>
         <link rel="shortcut icon" href="{Favicon}">
-    	<link rel="alternate" type="application/rss+xml" href="{RSS}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
 		<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {block:Description}
@@ -65,8 +65,8 @@
 					<li class="about"><a href="/about">About me</a></li>
 			    <li class="portfolio"><a href="/portfolio">Portfolio</a></li>
 					<li class="{block:PermalinkPage}active{/block:PermalinkPage}"><a href="/blog">Blog</a></li>
-					<li class="resume"><a href="#">Resume</a></li>
-					<li class="contact"><a href="/contact">Contact</a></li>
+					<li class="resume"><a href="/resume">Resume</a></li>
+					<li class="contact"><a href="/ask">Contact</a></li>
 			</ul>
 			
 			{block:IndexPage}
@@ -102,11 +102,18 @@
 				</div>
 			</article>
 			{/block:IndexPage}
-
 			
-			{block:Pages}
-				Shit
-			{/block:Pages}
+			{block:PermalinkPage}
+			<!-- Recent Posts -->
+			<article class="row-fluid" id="blog-posts">
+					{block:Posts}
+						{block:Text}
+								{block:Title}<h2>{Title}</h2>{/block:Title}
+								{Body}
+						{/block:Text}
+					{/block:Posts}
+			</article>
+			{/block:PermalinkPage}
 			
 			<!-- Footer -->
 			<footer>
