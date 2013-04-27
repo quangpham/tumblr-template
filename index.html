@@ -38,26 +38,30 @@
 
   <body>
 		<section class="container">
-
 			<!-- Header -->
 			<header class="row-fluid">
 				<div class="title span7">
-					<img src="http://dl.dropboxusercontent.com/u/14181582/cdn/tumblr/assets/img/profile.jpg" title="That`s me!" alt="My Profile"/>
-					<h1>Quang Pham</h1>
-					<h2>web geek/mobile developer</h2>
+					<a href="/">
+						<img src="http://dl.dropboxusercontent.com/u/14181582/cdn/tumblr/assets/img/profile.jpg" title="That`s me!" alt="My Profile"/>
+						<h1>Quang Pham</h1>
+							{block:Description}
+								<h2 id="title-description">{Description}</h2>
+							{/block:Description}
+					</a>
 				</div>
 				<div class="social offset1 span4">
 					<ul>
 						<li><i class="icon-envelope"></i> me@quangpham.com</li>
 						<li><i class="icon-phone"></i> +358 443 460 162</li>
-						<a href="https://twitter.com/phamaa" ><i class="icon-twitter-sign icon-large" ></i></a>
-						<a href="https://www.facebook.com/phamxq" ><i class="icon-facebook-sign icon-large" ></i></a>
-						<a href="http://fi.linkedin.com/pub/pham-quang/50/316/72" ><i class="icon-linkedin-sign icon-large" ></i></a>
-						<a href="https://github.com/quangpham" ><i class="icon-github-sign icon-large" ></i></a></li>
+						<a target="_blank" href="https://twitter.com/phamaa" ><i class="icon-twitter-sign icon-large" ></i></a>
+						<a target="_blank" href="https://www.facebook.com/phamxq" ><i class="icon-facebook-sign icon-large" ></i></a>
+						<a target="_blank" href="http://fi.linkedin.com/pub/pham-quang/50/316/72" ><i class="icon-linkedin-sign icon-large" ></i></a>
+						<a target="_blank" href="https://github.com/quangpham" ><i class="icon-github-sign icon-large" ></i></a></li>
 					</ul>
 				</div>	
 			</header>
-
+			
+			{block:IndexPage}
 			<!-- Welcome Text -->
 			<article class="row-fluid">
 				<header class="span3">
@@ -68,7 +72,28 @@
 					<p class="auth"> <i>Antoine de Saint-Exupery</i>  </p>
 				</div>
 			</article>
+			{/block:IndexPage}
 
+			<!-- Recent Posts -->
+			<article class="row-fluid" id="recent-posts">
+				<header class="span3">
+					<h3>Recent Posts</h3>
+				</header>
+				<div class="span9">
+					{block:Posts}
+						{block:Text}
+						<li class="post text">
+							{block:Title}
+								<a class="recent-posts-title" href="{Permalink}">{Title} - {DayOfMonth} {Month} {Year}</a>
+							{/block:Title}
+						</li>
+						{block:More} {Body} {/block:More}
+						{/block:Text}
+					{/block:Posts}
+				</div>
+			</article>
+
+			{block:IndexPage}
 			<!-- Skills -->
 			<article class="row-fluid">
 				<header class="span3">
@@ -85,15 +110,16 @@
 						</ul>
 						<ul class="span6">
 							<li><h4>Languages</h4></li>
-							<li><strong>English</strong> - Fluent </li>
-							<li><strong>Russian</strong> - Fluent in writing</li>
-							<li><strong>Spanish</strong> - Lorem ipsum dolor sit amet</li>
-							<li><strong>Esperanto</strong> - Lorem ipsum dolor sit amet</li>
+							<li><strong>English</strong> - Working proficiency </li>
+							<li><strong>Finnish</strong> - Basic</li>
+							<li><strong>Vietnamese</strong> - Native</li>
 						</ul>
 					</div>
 				</div>
 			</article>
+			{/block:IndexPage}
 
+			{block:IndexPage}
 			<!-- Education -->
 			<article class="row-fluid">
 				<header class="span3">
@@ -111,7 +137,9 @@
 					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diamvoluptua.</p>
 				</div>
 			</article>
+			{/block:IndexPage}
 
+			{block:IndexPage}
 			<!-- Work -->
 			<article class="row-fluid">
 				<header class="span3">
@@ -126,27 +154,11 @@
 					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diamvoluptua.</p>
 				</div>
 			</article>
-
-			<!-- Interests -->
-			<article class="row-fluid">
-				<header class="span3">
-					<h3>Interests</h3>
-				</header>
-				<div class="span9">
-					<h4>Traveling</h4>
-					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diamvoluptua</p>
-					<h4>Reading</h4>
-					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diamvoluptua</p>
-					<h4>Books</h4>
-					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyeirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diamvoluptua</p>
-				</div>
-			</article>
-
+			{/block:IndexPage}
+			
 			<!-- Footer -->
 			<footer>
-				&copy; 2013 John Smith 
-				<a href="#">Download as PDF</a> | <a href="#" onclick="javascript:window.print();">Print</a> | <a href="#top">To top <i class="icon-arrow-up"></i></a>
-			
+				&copy; 2013 Quang Pham | <a href="#top">To top <i class="icon-arrow-up"></i></a>
 			</footer>
 	</section>
 
