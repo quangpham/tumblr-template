@@ -3,7 +3,7 @@
   <head>
     <title>{Title}</title>
         <link rel="shortcut icon" href="{Favicon}">
-		<link rel="alternate" type="application/rss+xml" href="{RSS}">
+    	<link rel="alternate" type="application/rss+xml" href="{RSS}">
 		<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {block:Description}
@@ -61,11 +61,12 @@
 			</header>
 			
 			<ul class="nav nav-tabs" id="main-nav">
-			    <li class="active"><a href="#">About me</a></li>
-			    <li><a href="#">Porfolio</a></li>
-					<li><a href="#">Blog</a></li>
-					<li><a href="#">Resume</a></li>
-					<li><a href="#">Contact</a></li>
+			    <li class="home"><a href="/">Home</a></li>
+					<li class="about"><a href="/about">About me</a></li>
+			    <li class="portfolio"><a href="/portfolio">Portfolio</a></li>
+					<li class="{block:PermalinkPage}active{/block:PermalinkPage}"><a href="/blog">Blog</a></li>
+					<li class="resume"><a href="#">Resume</a></li>
+					<li class="contact"><a href="/contact">Contact</a></li>
 			</ul>
 			
 			{block:IndexPage}
