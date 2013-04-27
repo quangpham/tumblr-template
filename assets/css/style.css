@@ -1,12 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,300italic,400italic);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,300);
 
-/*!
- *  Simple - Minimal, responsive resume
- *  Copyright 2013 prettyspoon.com
- *  Author: Uvis Grinfelds
- */
-/* Borders and Spacing */
 body {
   display: none;
   font-family: Source Sans Pro, Open Sans, Helvetica, Arial, sans-serif;
