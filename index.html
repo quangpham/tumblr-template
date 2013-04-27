@@ -20,7 +20,6 @@
 		
 		<link href="http://dl.dropboxusercontent.com/u/14181582/cdn/tumblr/assets/css/style.css" rel="stylesheet">
 		
-		
     <!-- Fallback for NoScript -->
     <noscript>
     	<style type="text/css">
@@ -39,7 +38,7 @@
   <body>
 		<section class="container">
 			<!-- Header -->
-			<header class="row-fluid">
+			<header class="row-fluid" id="top-header">
 				<div class="title span7">
 					<a href="/">
 						<img src="http://dl.dropboxusercontent.com/u/14181582/cdn/tumblr/assets/img/profile.jpg" title="That`s me!" alt="My Profile"/>
@@ -58,8 +57,16 @@
 						<a target="_blank" href="http://fi.linkedin.com/pub/pham-quang/50/316/72" ><i class="icon-linkedin-sign icon-large" ></i></a>
 						<a target="_blank" href="https://github.com/quangpham" ><i class="icon-github-sign icon-large" ></i></a></li>
 					</ul>
-				</div>	
+				</div>
 			</header>
+			
+			<ul class="nav nav-tabs" id="main-nav">
+			    <li class="active"><a href="#">About me</a></li>
+			    <li><a href="#">Porfolio</a></li>
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">Resume</a></li>
+					<li><a href="#">Contact</a></li>
+			</ul>
 			
 			{block:IndexPage}
 			<!-- Welcome Text -->
@@ -85,10 +92,10 @@
 						{block:Text}
 						<li class="post text">
 							{block:Title}
-								<a class="recent-posts-title" href="{Permalink}">{Title} - {DayOfMonth} {Month} {Year}</a>
+								<a class="recent-posts-title" href="{Permalink}">[{DayOfMonthWithZero}.{MonthNumberWithZero}.{Year}] {Title}</a>
 							{/block:Title}
+							{block:More} <a class="recent-posts-title" href="{Permalink}"> {Body} [...]</a> {/block:More}
 						</li>
-						{block:More} {Body} {/block:More}
 						{/block:Text}
 					{/block:Posts}
 				</div>
