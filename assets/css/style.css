@@ -175,7 +175,7 @@ img {
 }
 
 #top-header {border:none;}
-#main-nav {padding-left:210px;margin-bottom:0}
+#main-nav {padding-left:180px;margin-bottom:0}
 #main-nav li a {font-size:17px;}
 #title-description {font-size:16px;}
 .recent-posts-title {font-size:17px;}
@@ -186,3 +186,5 @@ img {
 #blog-posts h2 {text-align:left;}
 #blog-posts p {text-indent:0;margin-bottom:10px;}
 #contact-detail {margin:15px 0;}
+#main-nav .dropdown-menu li a {border-bottom:none}
+#main-nav .dropdown-menu li a:hover {background:#9A9A9A}
