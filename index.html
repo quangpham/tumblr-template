@@ -61,16 +61,16 @@
 			</header>
 			
 			<ul class="nav nav-tabs" id="main-nav">
-				<li class="home"><a href="/">Home</a></li>
+				<li class="_indexpage"><a href="/">Home</a></li>
 				<li class="about"><a href="/about">About me</a></li>
 				<li class="portfolio"><a href="/portfolio">Portfolio</a></li>
 				<!--li class="{block:PermalinkPage}active{/block:PermalinkPage}"><a href="/blog">Blog</a></li-->
-				<li class="dropdown {block:PermalinkPage}active{/block:PermalinkPage}">
+				<li class="dropdown {block:PermalinkPage}active{/block:PermalinkPage} _blogpage">
 					<a href="#" data-toggle="dropdown" class="dropdown-toggle">Blog <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">All</a></li>
-						<li><a href="#">iOS</a></li>
-						<li><a href="#">Web</a></li>
+						<li><a href="/tagged/all">All</a></li>
+						<li><a href="/tagged/ios">iOS</a></li>
+						<li><a href="/tagged/web">Web</a></li>
 					</ul>
 				</li>
 				<li class="resume"><a href="/resume">Resume</a></li>
@@ -79,7 +79,7 @@
 
 			{block:IndexPage}
 			<!-- Welcome Text -->
-			<article class="row-fluid">
+			<article class="row-fluid indexpage">
 				<header class="span3">
 					<h3>Hello!</h3>
 				</header>
@@ -92,7 +92,7 @@
 			
 			{block:IndexPage}
 			<!-- Recent Posts -->
-			<article class="row-fluid" id="recent-posts">
+			<article class="row-fluid indexpage" id="recent-posts">
 				<header class="span3">
 					<h3>Recent Posts</h3>
 				</header>
@@ -123,29 +123,35 @@
 			</article>
 			{/block:PermalinkPage}
 			
+
+			<!-- Blog tag -->
+			<article class="row-fluid blogpage">
+				<header class="span3">
+					<h3>Recent Posts</h3>
+				</header>
+				<div class="span9">
+					{block:Posts}
+						{block:HasTags}
+							{block:Tags}
+								<li class="post text">
+									{block:Title}
+										<a class="recent-posts-title" href="{Permalink}">[{DayOfMonthWithZero}.{MonthNumberWithZero}.{Year}] {Title}</a>
+									{/block:Title}
+									{Body}
+								</li>
+							{/block:Tags}
+						{/block:HasTags}
+					{/block:Posts}
+				</div>
+			</article>
+			
 			<!-- Footer -->
-			<footer>
-				&copy; 2013 Quang Pham | <a href="#top">To top <i class="icon-arrow-up"></i></a>
-			</footer>
+			<footer>&copy; 2013 Quang Pham | <a href="#top">To top <i class="icon-arrow-up"></i></a></footer>
 	</section>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 	<script src="http://jasny.github.io/bootstrap/assets/js/bootstrap-dropdown.js"></script>
 	<script src="http://dl.dropboxusercontent.com/u/14181582/cdn/tumblr/assets/js/main.js"></script>
-	
-	<script type="text/javascript">
 
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-40478094-1']);
-	  _gaq.push(['_trackPageview']);
-
-	  (function() {
-	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
-
-	</script>
 	</body>
-
 </html>

@@ -173,7 +173,7 @@ img {
     padding-top: 0px;
   }
 }
-
+.indexpage, .blogpage {display:none;}
 #top-header {border:none;}
 #main-nav {padding-left:180px;margin-bottom:0}
 #main-nav li a {font-size:17px;}
