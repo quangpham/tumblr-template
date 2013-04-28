@@ -14,7 +14,7 @@ $(document).ready(function() {
 		
 		$("#tumblr_controls").attr("style","display:none");
 		
-		$("#not-wrap-close").click(function () {
+		$("#noti-wrapper .close-box .icon-remove").click(function () {
 			$("#notification").hide();
 			$.cookie('hide-notification-cookie', true, { expires: 7 });
 		});
@@ -24,9 +24,8 @@ $(document).ready(function() {
 			set_menu_active("_indexpage");
 			set_page_active("indexpage");
 			$(window).scroll(function () {
-				if (!$.cookie('hide-notification-cookie')) {
+				//if (!$.cookie('hide-notification-cookie')) 
 					$("#notification").show().animate({height:"40px"},{duration: 1000,easing: 'easeInOutBack'});
-				}
 			});
 		}
 		else if (isPage("about")) set_menu_active("about");
