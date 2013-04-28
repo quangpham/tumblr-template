@@ -3,10 +3,7 @@
   $(document.body).fadeIn(1200);
 })(jQuery);
 
-$(document).ready(function() {
-		var current_path = window.location.href;
-		//console.log(current_path);
-		
+$(document).ready(function() {		
     $('a[href=#top]').click(function(){
         $('html, body').animate({scrollTop:0}, 'slow');
         return false;
@@ -14,19 +11,19 @@ $(document).ready(function() {
 		
 		$("#tumblr_controls").attr("style","display:none");
 		
+		$(window).scroll(function () {
+			if (!$.cookie('hide-notification-cookie')) 
+				$("#notification").show().animate({height:"40px"},{duration: 500,easing: 'easeInOutBack'});
+		});
+		
 		$("#noti-wrapper .close-box .icon-remove").click(function () {
-			$("#notification").hide();
-			$.cookie('hide-notification-cookie', true, { expires: 7 });
+			hide_notification_box();
 		});
 		
 		// Check if page is homepage?
 		if (isPage("")) {
 			set_menu_active("_indexpage");
 			set_page_active("indexpage");
-			$(window).scroll(function () {
-				//if (!$.cookie('hide-notification-cookie')) 
-					$("#notification").show().animate({height:"40px"},{duration: 1000,easing: 'easeInOutBack'});
-			});
 		}
 		else if (isPage("about")) set_menu_active("about");
 		else if (isPage("resume")) set_menu_active("resume");
@@ -41,7 +38,7 @@ $(document).ready(function() {
 			Call me +358 443 460 162 or shoot me an email at me@quangpham.com. <br><br></p>\
 			<p>Quick question? Drop me a line bellow<br>Your question: </p></div>');
 		} 
-		else if (current_path.indexOf("/tagged/") !=-1) {
+		else if (window.location.href.indexOf("/tagged/") !=-1) {
 			set_menu_active("_blogpage");
 			set_page_active("blogpage");
 		}
@@ -55,9 +52,10 @@ $(document).ready(function() {
 		}
 		
 		function isPage(page) {
-			if (current_path === "http://quangpham.com/"+page) return true;
+			if (window.location.href === "http://quangpham.com/"+page) return true;
 			return false;
 		}
+		
 });
 
 // Google Analytics
@@ -70,3 +68,8 @@ _gaq.push(['_trackPageview']);
   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
+
+window.hide_notification_box = function () {
+	$('#notification').hide();
+	$.cookie('hide-notification-cookie', true, { expires: 3 });
+}

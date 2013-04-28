@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:fb="http://ogp.me/ns/fb#" lang="en">
   <head>
     <title>{Title}</title>
         <link rel="shortcut icon" href="{Favicon}">
@@ -40,7 +40,7 @@
 			<div id="noti-wrapper">
 				<div class="msg-box">
 					<div style="float:left;margin-right:10px">Like my website?</div>
-					<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fquangpham.com&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=168831249938144" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
+					<div class="fb-like" data-href="http://quangpham.com" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
 				</div>
 				<div class="close-box"><i class="icon-remove"></i></div>
 			</div>
@@ -164,6 +164,20 @@
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.3.1/jquery.cookie.min.js"></script>
 	<script src="http://jasny.github.io/bootstrap/assets/js/bootstrap-dropdown.js"></script>
 	<script src="http://dl.dropboxusercontent.com/u/14181582/cdn/tumblr/assets/js/main.js"></script>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+		window.fbAsyncInit = function() {
+		 FB.init({appId: '168831249938144', status: true, cookie: true, xfbml: true});
+		 FB.Event.subscribe('edge.create', function(response) {
+		 hide_notification_box();
+		 });
+		};
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=168831249938144";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
 
 	</body>
 </html>
