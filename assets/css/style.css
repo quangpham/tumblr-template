@@ -179,15 +179,6 @@ img {
 #noti-wrapper {height: 100%;width: 800px;margin: 0 auto;color:white;}
 #noti-wrapper .msg-box {float: left;font-size: 18px;height: 20px;width: 770px;margin-top: 10px;}
 #noti-wrapper .close-box {float:right;font-size:17px;margin-top:10px;cursor:pointer;}
-/*
-#noti-wrapper .msg-box {margin:6px auto 0 auto;height:25px;font-size:18px;}
-#noti-wrapper .close-butt {float:right;}
-#noti-wrapper .close-butt .icon-remove {float:right;font-size:17px;cursor:pointer;}
-#not-wrap-close {color:white;float:right;margin-top: 7px;font-size:22px;}
-#facebook-like { width: 200px; margin:0 auto;}
-#facebook-like .fleft {float:left;font-size:16px;color:white;}
-#facebook-like .fright {float:left;}
-*/
 .indexpage, .blogpage {display:none;}
 #top-header {border:none;}
 #main-nav {padding-left:180px;margin-bottom:0}
@@ -206,3 +197,4 @@ img {
 .blogpage li.post.text  {list-style: none outside none;border-bottom:1px solid #333;margin-bottom:15px;}
 .blogpage .post.text h2 {text-align:left;}
 .blogpage .post.text p {text-indent:0;margin-bottom:10px;}
+#add_this {width:350px;float:right;overflow:hidden;}
