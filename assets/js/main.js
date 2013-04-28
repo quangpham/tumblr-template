@@ -4,6 +4,9 @@
 })(jQuery);
 
 $(document).ready(function() {
+		var current_path = window.location.href;
+		//console.log(current_path);
+		
     $('a[href=#top]').click(function(){
         $('html, body').animate({scrollTop:0}, 'slow');
         return false;
@@ -11,18 +14,26 @@ $(document).ready(function() {
 		
 		$("#tumblr_controls").attr("style","display:none");
 		
-		var current_path = window.location.href;
-		console.log(current_path);
+		$("#not-wrap-close").click(function () {
+			$("#notification").hide();
+			$.cookie('hide-notification-cookie', true, { expires: 7 });
+		});
 		
-		if (current_path === "http://quangpham.com/") {
+		// Check if page is homepage?
+		if (isPage("")) {
 			set_menu_active("_indexpage");
 			set_page_active("indexpage");
+			$(window).scroll(function () {
+				if (!$.cookie('hide-notification-cookie')) {
+					$("#notification").show().animate({height:"40px"},{duration: 1000,easing: 'easeInOutBack'});
+				}
+			});
 		}
-		else if (current_path === "http://quangpham.com/about") set_menu_active("about");
-		else if (current_path === "http://quangpham.com/resume") set_menu_active("resume");
-		else if (current_path === "http://quangpham.com/portfolio") set_menu_active("portfolio");
-		else if (current_path === "http://quangpham.com/resume") set_menu_active("resume");
-		else if (current_path === "http://quangpham.com/ask") {
+		else if (isPage("about")) set_menu_active("about");
+		else if (isPage("resume")) set_menu_active("resume");
+		else if (isPage("portfolio")) set_menu_active("portfolio");
+		else if (isPage("resume")) set_menu_active("resume");
+		else if (isPage("ask")) {
 			set_menu_active("contact");
 			$("#blog-posts h2").append('<div id="contact-detail"><p>You can find me on \
 			<a target="_blank" href="https://www.facebook.com/phamxq" ><i class="icon-facebook-sign" > <b>Facebook</b></i></a>, \
@@ -42,6 +53,11 @@ $(document).ready(function() {
 		function set_menu_active(item) {
 			$("#main-nav li.active").removeClass("active");
 			$("#main-nav li."+item).addClass("active");
+		}
+		
+		function isPage(page) {
+			if (current_path === "http://quangpham.com/"+page) return true;
+			return false;
 		}
 });
 

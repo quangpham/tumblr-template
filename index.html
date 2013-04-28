@@ -36,6 +36,12 @@
   </head>
 
   <body>
+		<div id="notification">
+			<div id="noti-wrapper">
+				<i class="icon-remove" id="not-wrap-close"></i>
+			</div>
+		</div>
+		
 		<section class="container">
 			<!-- Header -->
 			<header class="row-fluid" id="top-header">
@@ -69,7 +75,7 @@
 					<a href="#" data-toggle="dropdown" class="dropdown-toggle">Blog <b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><a href="/tagged/all">All</a></li>
-						<li><a href="/tagged/ios">iOS</a></li>
+						<li><a href="/tagged/mobile">Mobile</a></li>
 						<li><a href="/tagged/web">Web</a></li>
 					</ul>
 				</li>
@@ -127,15 +133,15 @@
 			<!-- Blog tag -->
 			<article class="row-fluid blogpage">
 				<header class="span3">
-					<h3>Recent Posts</h3>
+					<h3>Blog</h3>
 				</header>
-				<div class="span9">
+				<div class="span9" style="padding-top:0">
 					{block:Posts}
 						{block:HasTags}
 							{block:Tags}
 								<li class="post text">
 									{block:Title}
-										<a class="recent-posts-title" href="{Permalink}">[{DayOfMonthWithZero}.{MonthNumberWithZero}.{Year}] {Title}</a>
+										<a class="recent-posts-title" href="{Permalink}"><h2>[{DayOfMonthWithZero}.{MonthNumberWithZero}.{Year}] {Title}</h2></a>
 									{/block:Title}
 									{Body}
 								</li>
@@ -150,6 +156,8 @@
 	</section>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.3.1/jquery.cookie.min.js"></script>
 	<script src="http://jasny.github.io/bootstrap/assets/js/bootstrap-dropdown.js"></script>
 	<script src="http://dl.dropboxusercontent.com/u/14181582/cdn/tumblr/assets/js/main.js"></script>
 
