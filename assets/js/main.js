@@ -10,12 +10,7 @@ $(document).ready(function() {
     });
 		
 		$("#tumblr_controls").attr("style","display:none");
-		
-		$(window).scroll(function () {
-			if (!$.cookie('hide-notification-cookie')) 
-				$("#notification").show().animate({height:"40px"},{duration: 500,easing: 'easeInOutBack'});
-		});
-		
+				
 		$("#noti-wrapper .close-box .icon-remove").click(function () {
 			hide_notification_box();
 		});
@@ -24,8 +19,12 @@ $(document).ready(function() {
 		if (isPage("")) {
 			set_menu_active("_indexpage");
 			set_page_active("indexpage");
+			check_notification_bar();
 		}
-		else if (isPage("about")) set_menu_active("about");
+		else if (isPage("about")) {
+			check_notification_bar();
+			set_menu_active("about");
+		}
 		else if (isPage("resume")) set_menu_active("resume");
 		else if (isPage("portfolio")) set_menu_active("portfolio");
 		else if (isPage("resume")) set_menu_active("resume");
@@ -42,7 +41,14 @@ $(document).ready(function() {
 			set_menu_active("_blogpage");
 			set_page_active("blogpage");
 		}
-		
+		else if (window.location.href.indexOf("/post/") !=-1) {
+			$(window).scroll(function() {
+			   if($(window).scrollTop() + $(window).height() == $(document).height()) {
+					 $('#add_this_bar').show('slow', function() {});
+			   }
+			});
+		}
+	
 		function set_page_active(page) {
 			$("."+page).show();
 		}
@@ -50,7 +56,15 @@ $(document).ready(function() {
 			$("#main-nav li.active").removeClass("active");
 			$("#main-nav li."+item).addClass("active");
 		}
-		
+		function check_notification_bar() {
+			$(window).scroll(function() {
+				if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+					if (!$.cookie('hide-notification-cookie')) {
+						$("#notification").show().animate({height:"40px"},{duration: 500,easing: 'easeInOutBack'});
+					}
+				}
+			});
+		}
 		function isPage(page) {
 			if (window.location.href === "http://quangpham.com/"+page) return true;
 			return false;
