@@ -124,7 +124,7 @@ img {
   float: left;
 }
 
-#notification {width:100%;height:0px;position:fixed;top:0;display:none;border-bottom:1px solid rgba(255,255,255,0.15);background-color:#545454;-webkit-box-shadow:0 -1px 1px rgba(0,0,0,0.5) inset;-moz-box-shadow:0 -1px 1px rgba(0,0,0,0.5) inset;-ms-box-shadow:0 -1px 1px rgba(0,0,0,0.5) inset;-o-box-shadow:0 -1px 1px rgba(0,0,0,0.5) inset;box-shadow:0 -1px 1px rgba(0,0,0,0.5) inset}
+#notification {z-index:10000;width:100%;height:0px;position:fixed;top:0;display:none;border-bottom:1px solid rgba(255,255,255,0.15);background-color:#545454;-webkit-box-shadow:0 -1px 1px rgba(0,0,0,0.5) inset;-moz-box-shadow:0 -1px 1px rgba(0,0,0,0.5) inset;-ms-box-shadow:0 -1px 1px rgba(0,0,0,0.5) inset;-o-box-shadow:0 -1px 1px rgba(0,0,0,0.5) inset;box-shadow:0 -1px 1px rgba(0,0,0,0.5) inset}
 #noti-wrapper {height: 100%;width: 800px;margin: 0 auto;color:white;}
 #noti-wrapper .msg-box {float: left;font-size: 18px;height: 20px;width: 770px;margin-top: 10px;}
 #noti-wrapper .close-box {float:right;font-size:17px;margin-top:10px;cursor:pointer;}
@@ -146,4 +146,6 @@ img {
 .blogpage li.post.text  {list-style: none outside none;border-bottom:1px solid #333;margin-bottom:15px;}
 .blogpage .post.text h2 {text-align:left;}
 .blogpage .post.text p {text-indent:0;margin-bottom:10px;}
-#add_this_bar {width:350px;float:right;overflow:hidden;display:none;}
+.social-box {display:none;}
+.client_project h3 {text-align:center;}
+.client_project .span4 {margin:4px;height:180px;}
