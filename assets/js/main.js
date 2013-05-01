@@ -11,13 +11,15 @@ $(document).ready(function() {
 		
 		$("#tumblr_controls").attr("style","display:none");
 				
-		$("#noti-wrapper .close-box .icon-remove").click(function () {
+		$("#notification .icon-remove").click(function () {
 			hide_notification_box();
 		});
 		
-		nearBottomPageCallback(150, function() {
+		postAnalytic();
+		
+		nearBottomPageCallback(function() {
 			if (!$.cookie('hide-notification-cookie')) {
-				$("#notification").show().animate({height:"40px"},{duration: 500,easing: 'easeInOutBack'});
+				$("#notification").animate({top:"0px"},{duration: 400,easing: 'jswing'});
 			}
 		});
 		
@@ -29,9 +31,8 @@ $(document).ready(function() {
 		else if (isPage("about")) {
 			set_menu_active("about");
 		}
-		else if (isPage("resume")) set_menu_active("resume");
-		else if (isPage("portfolio")) set_menu_active("portfolio");
-		else if (isPage("resume")) set_menu_active("resume");
+		else if (isPage("work")) set_menu_active("work");
+		else if (isPage("blogi")) set_menu_active("blogi");
 		else if (isPage("ask")) {
 			set_menu_active("contact");
 			appendDetailContactPage();
@@ -42,11 +43,6 @@ $(document).ready(function() {
 		}
 		else if (isUrlContainKeyword("/post/")) {
 			$('.social-box').show();
-			nearBottomPageCallback(100, function() {
-				if (!$.cookie('hide-notification-cookie')) {
-					$("#notification").show().animate({height:"40px"},{duration: 500,easing: 'easeInOutBack'});
-				}
-			});
 		}
 		
 		
@@ -74,12 +70,12 @@ $(document).ready(function() {
 		function isUrlContainKeyword(keyword) {
 			return (window.location.href.indexOf(keyword) !=-1) ? true : false;
 		}
-		function nearBottomPageCallback(distance,callback) {
+		function nearBottomPageCallback(callback,distance,timeout) {
+			distance = distance || 150;
+			timeout = timeout || 3000;
 			$(window).load(function(){
 				if ($(window).height() == $(document).height()) {
-					callback();
-					console.log("Call here " + $(window).height() + " - " + $(document).height());
-					return;
+					setTimeout(function(){callback();}, timeout);
 				} else {
 					$(window).scroll(function(){
 						if (($(window).scrollTop() + $(window).height() >= $(document).height() - distance)) {
@@ -87,20 +83,39 @@ $(document).ready(function() {
 						}
 					});
 				}
-				
 			});
 		}
-		/*
-		$(function() {
-		$(window).scroll(function(){
-		if ($('body').height() <= ($(window).height() + $(window).scrollTop()))
-		$('#slidebox').animate({'bottom':'0px'},300);
-		});*/
+		
+		socialLinkAnalytic("facebook");
+		socialLinkAnalytic("linkedin");
+		socialLinkAnalytic("twitter");
+		socialLinkAnalytic("github");
+		
 });
+
+window.socialLinkAnalytic = function(link) {
+	$(".icon-"+link+"-sign").parent().each(function(){
+		$(this).click(function() {
+			postAnalytic(link + " clicked");
+		});
+	});
+}
+
+window.analyticUrl = "http://radiant-shore-8948.herokuapp.com";
+//window.analyticUrl = "http://localhost:3000";
+window.postAnalytic = function (behaviour)  {
+	behaviour = behaviour || "";
+	$.getJSON("http://jsonip.appspot.com?callback=?",function (data) {
+		console.log(data.ip);
+		$.post(window.analyticUrl + "/requests.json", {request:{ ip: data.ip, url: window.location.href, behaviour: behaviour, browser: navigator.userAgent, title: $("html head title").html()}} );
+	})
+}
+
+
 
 window.hide_notification_box = function () {
 	$('#notification').hide();
-	$.cookie('hide-notification-cookie', true, { expires: 3 });
+	//$.cookie('hide-notification-cookie', true, { expires: 3 });
 }
 
 // Google Analytics
