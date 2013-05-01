@@ -115,7 +115,7 @@ window.postAnalytic = function (behaviour)  {
 
 window.hide_notification_box = function () {
 	$('#notification').hide();
-	//$.cookie('hide-notification-cookie', true, { expires: 3 });
+	$.cookie('hide-notification-cookie', true, { expires: 3 });
 }
 
 // Google Analytics

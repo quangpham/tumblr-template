@@ -39,26 +39,16 @@
 
 	<body>
 		<div id="notification">
-			<div class="container">
+			<div class="container notification">
 				<div class="message">
 					<div class="noti-msg">Like my website?</div>
 					<div class="fb-like" data-href="http://quangpham.com" data-send="false" data-layout="button_count" data-width="85" data-show-faces="false"></div>
-					<a href="https://twitter.com/phamaa" class="twitter-follow-button" data-show-count="true" data-width="200px" data-lang="en">Follow</a>
+					<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://quangpham.com" data-via="phamaa">Tweet</a>
 					<div class="close-box"><i class="icon-remove"></i></div>
 				</div>
 			</div>
-			<!-- 
-			<div id="noti-wrapper">
-				<div class="msg-box">
-					
-					
-				</div>
-				
-			</div>
-			-->
-			
 		</div>
-		
+	
 		<section class="container">
 			<!-- Header -->
 			<header class="row-fluid" id="top-header">
@@ -88,17 +78,6 @@
 				<li class="about"><a href="/about">About me</a></li>
 				<li class="work"><a href="/work">Work</a></li>
 				<li class="blogi"><a href="/blogi">Blog</a></li>
-				<!-- 
-				<li class="dropdown {block:PermalinkPage}active{/block:PermalinkPage} _blogpage">
-					<a href="#" data-toggle="dropdown" class="dropdown-toggle">Blog <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="/tagged/all">All</a></li>
-						<li><a href="/tagged/mobile">Mobile</a></li>
-						<li><a href="/tagged/web">Web</a></li>
-					</ul>
-				</li>
-				-->
-				
 				<li class="contact"><a href="/ask">Contact</a></li>
 			</ul>
 
@@ -213,7 +192,7 @@
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
 	<!-- Twitter -->
-	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
 	</body>
 </html>
