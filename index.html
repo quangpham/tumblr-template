@@ -42,8 +42,8 @@
 			<div class="container notification">
 				<div class="message">
 					<div class="noti-msg">Like my website?</div>
-					<div class="fb-like" data-href="http://quangpham.com" data-send="false" data-layout="button_count" data-width="85" data-show-faces="false"></div>
-					<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://quangpham.com" data-via="phamaa">Tweet</a>
+					<div class="twitter-box"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://quangpham.com" data-via="phamaa">Tweet</a></div>
+					<div class="facebook-box"><div class="fb-like" data-href="http://quangpham.com" data-send="false" data-layout="button_count" data-width="85" data-show-faces="false"></div></div>
 					<div class="close-box"><i class="icon-remove"></i></div>
 				</div>
 			</div>
@@ -98,9 +98,24 @@
 			<!-- Recent Projects -->
 			<article class="row-fluid indexpage client_project">
 				<h3 style="text-align:center">Recent Projects</h3>
-				<div class="span4 thumbnail">Project 1</div>
-				<div class="span4 thumbnail">Project 2</div>
-				<div class="span4 thumbnail">Project 3</div>
+					<div class='p_wrapper'> 
+					    <img src='https://dl.dropboxusercontent.com/u/14181582/cdn/tumblr/assets/img/p1.png' />
+					    <div class='description'>
+					        <div class='description_content'>The pack, the basic unit of wolf social life, is usually a family group. It is made up of animals related to each other by blood and family ties of affection and mutual aid. </div>
+					    </div>
+					</div>
+					<div class='p_wrapper'> 
+					    <img src='https://dl.dropboxusercontent.com/u/14181582/cdn/tumblr/assets/img/p2.png' />
+					    <div class='description'>
+					        <div class='description_content'>The pack, the basic unit of wolf social life, is usually a family group. It is made up of animals related to each other by blood and family ties of affection and mutual aid. </div>
+					    </div>
+					</div>
+					<div class='p_wrapper'> 
+					    <img src='https://dl.dropboxusercontent.com/u/14181582/cdn/tumblr/assets/img/p3.png' />
+					    <div class='description'>
+					        <div class='description_content'>The pack, the basic unit of wolf social life, is usually a family group. It is made up of animals related to each other by blood and family ties of affection and mutual aid. </div>
+					    </div>
+					</div>
 			</article>
 			{/block:IndexPage}
 			
@@ -144,7 +159,8 @@
 								<h6>{DayOfMonthWithZero} {Month} {Year}</h6>
 								{Body}
 								<div class="social-box">
-									<div class="fb-like" data-href="{URL}" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
+									<div class="twitter-box"><a href="https://twitter.com/share" class="twitter-share-button" data-url="{URL}" data-via="phamaa">Tweet</a></div>
+									<div class="facebook-box"><div class="fb-like" data-href="{URL}" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div></div>
 								</div>
 						{/block:Text}
 					{/block:Posts}

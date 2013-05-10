@@ -4,6 +4,7 @@
 })(jQuery);
 
 $(document).ready(function() {	
+		beginBrowseTime = new Date();
     $('a[href=#top]').click(function(){
         $('html, body').animate({scrollTop:0}, 'slow');
         return false;
@@ -15,7 +16,14 @@ $(document).ready(function() {
 			hide_notification_box();
 		});
 		
-		postAnalytic();
+		if (!$.cookie('is-analytic')) {
+			postAnalytic();
+
+			socialLinkAnalytic("facebook");
+			socialLinkAnalytic("linkedin");
+			socialLinkAnalytic("twitter");
+			socialLinkAnalytic("github");
+		}
 		
 		nearBottomPageCallback(function() {
 			if (!$.cookie('hide-notification-cookie')) {
@@ -42,7 +50,9 @@ $(document).ready(function() {
 			set_page_active("blogpage");
 		}
 		else if (isUrlContainKeyword("/post/")) {
-			$('.social-box').show();
+			nearBottomPageCallback(function() {
+				$(".social-box").animate({opacity:"1"},{duration: 1000,easing: 'jswing'});
+			},50);
 		}
 		
 		
@@ -86,12 +96,23 @@ $(document).ready(function() {
 			});
 		}
 		
-		socialLinkAnalytic("facebook");
-		socialLinkAnalytic("linkedin");
-		socialLinkAnalytic("twitter");
-		socialLinkAnalytic("github");
+		$(window).bind('beforeunload', function(){
+			endBrowseTime = new Date();
+			console.log(beginBrowseTime);
+			console.log(endBrowseTime);
+		  //return 'Are you sure you want to leave?';
+		});
+		
+		$('.p_wrapper').hover(function(){
+			$(this).children('.description').stop().animate({bottom:"0"},{duration: 400,easing: 'jswing'});
+			},function(){
+				var des_height = "-" + $(this).children('.description').css("height");
+				$(this).children('.description').stop().animate({bottom:des_height},{duration: 200,easing: 'jswing'});
+		});
+		
 		
 });
+
 
 window.socialLinkAnalytic = function(link) {
 	$(".icon-"+link+"-sign").parent().each(function(){
@@ -109,6 +130,10 @@ window.postAnalytic = function (behaviour)  {
 		console.log(data.ip);
 		$.post(window.analyticUrl + "/requests.json", {request:{ ip: data.ip, url: window.location.href, behaviour: behaviour, browser: navigator.userAgent, title: $("html head title").html()}} );
 	})
+}
+
+window.turnOffAnalytic = function () {
+	$.cookie('is-analytic', true, { expires: 30 });
 }
 
 

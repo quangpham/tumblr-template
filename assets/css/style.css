@@ -8,7 +8,7 @@ body {
   font-weight: 300;
 }
 .container {
-  max-width: 700px;
+  max-width: 800px;
   background-color: #fff;
   padding: 25px 50px;
   margin: 20px auto;
@@ -124,14 +124,15 @@ img {
   float: left;
 }
 
-#notification {width: 100%;height: 40px;position: fixed;top: -40px;font-size:16px;border-bottom:1px solid rgba(255,255,255,0.15);opacity:0.97;color:white;;background-color:#494949;-webkit-box-shadow:0 -1px 1px rgba(0,0,0,0.5) inset;-moz-box-shadow:0 -1px 1px rgba(0,0,0,0.5) inset;-ms-box-shadow:0 -1px 1px rgba(0,0,0,0.5) inset;-o-box-shadow:0 -1px 1px rgba(0,0,0,0.5) inset;box-shadow:0 -1px 1px rgba(0,0,0,0.5) inset}
+#notification {z-index:10000;width: 100%;height: 40px;position: fixed;top: -40px;font-size:16px;border-bottom:1px solid rgba(255,255,255,0.15);opacity:0.97;color:white;;background-color:#494949;-webkit-box-shadow:0 -1px 1px rgba(0,0,0,0.5) inset;-moz-box-shadow:0 -1px 1px rgba(0,0,0,0.5) inset;-ms-box-shadow:0 -1px 1px rgba(0,0,0,0.5) inset;-o-box-shadow:0 -1px 1px rgba(0,0,0,0.5) inset;box-shadow:0 -1px 1px rgba(0,0,0,0.5) inset}
 #notification .container {height: 30px;margin-bottom: 0;margin-top: 0;padding: 10px 50px 0 50px;background-color:transparent}
 .container.first {margin-top:5px;}
 #notification .noti-msg {float:left;font-weight:bold;margin-right:10px;}
+.facebook-box, .twitter-box {width:85px;height:20px;float:left;}
 #notification .close-box {float:right;cursor:pointer;}
 #notification .close-box:hover {color:#fca368;}
 #top-header .icon-large:hover {color:#555555;}
-
+.twitter-share-button {width:86px !;}
 .indexpage, .blogpage {display:none;}
 #top-header {border:none;}
 #main-nav {padding-left:180px;margin-bottom:0}
@@ -141,7 +142,7 @@ img {
 #recent-posts .post.text {margin-bottom:10px;}
 #recent-posts .post.text p {text-indent:0;}
 #recent-posts a {border:none;}
-#blog-posts {padding-top:0}
+#blog-posts {padding-top:0;}
 #blog-posts h2 {text-align:left;}
 #blog-posts p {text-indent:0;margin-bottom:10px;}
 #contact-detail {margin:15px 0;}
@@ -150,6 +151,32 @@ img {
 .blogpage li.post.text  {list-style: none outside none;border-bottom:1px solid #333;margin-bottom:15px;}
 .blogpage .post.text h2 {text-align:left;}
 .blogpage .post.text p {text-indent:0;margin-bottom:10px;}
-.social-box {display:none;}
+.social-box {height:20px;width:300px;opacity:0;}
 .client_project h3 {text-align:center;}
 .client_project .span4 {margin:4px;height:180px;}
+
+.client_project img {margin:0;border:none;}
+.p_wrapper {  
+	position:relative;
+	float:left;
+	margin:5px;
+	height:170px;
+	width:256px;
+	overflow:hidden;
+	cursor:pointer;
+}  
+.p_wrapper .description{  
+    position:absolute; 
+   	bottom:-120px; 
+    left:0px;
+		height:120px;
+		width:260px;
+    background-color:black;  
+    font-family: 'tahoma';  
+    font-size:15px;  
+    color:white;  
+		display:block;
+}  
+.p_wrapper .description_content{  
+    padding:10px;  
+}
